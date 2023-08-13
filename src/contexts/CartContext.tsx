@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { ProductProps } from "../pages/home";
+import { toast } from "react-hot-toast";
 
 interface CartContextData{
     cart: CartProps[];
@@ -74,6 +75,7 @@ function CartProvider({children}: CartProviderProps){
         const removeItem = cart.filter(item => item.id !== itemCart.id)
         setCart(removeItem)
         totalResultsCart(removeItem)
+        toast.success("Your cart is empty")
     }
 
     function totalResultsCart(items: CartProps[]){

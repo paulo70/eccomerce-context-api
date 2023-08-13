@@ -4,6 +4,8 @@ import {useContext, useEffect, useState } from "react"
 import { carContext } from "../../contexts/CartContext";
 import { Link } from "react-router-dom";
 
+import { toast } from "react-hot-toast";
+
 export interface ProductProps{
     id: number;
     title: string;
@@ -28,6 +30,7 @@ export function Home(){
     }, [])
 
     function handleAddItem(product: ProductProps){
+        toast.success("Product added was successfuly")
         handleAddProducts(product)
     }
 
